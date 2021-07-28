@@ -28,7 +28,7 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     date: PropTypes.string,
     rating: PropTypes.number,
-    genres: PropTypes.string,
+    genres: PropTypes.array,
 }
 
 export default MovieCard;

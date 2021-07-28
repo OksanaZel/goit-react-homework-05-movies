@@ -8,7 +8,6 @@ import defaultImage from "../images/defaultMovie.png";
 function MovieInfo({ poster, title, overview, releaseDate, popularity, vote, genres }) {
     const { url } = useRouteMatch();
 
-    // const { poster, title, overview, releaseDate, popularity, vote } = movie;
     return (
         <MovieInfoContainer>
             <Image src={poster ?`https://image.tmdb.org/t/p/original${poster}`: defaultImage} alt={title} />
@@ -33,15 +32,13 @@ function MovieInfo({ poster, title, overview, releaseDate, popularity, vote, gen
 }
 
 MovieInfo.propTypes = {
-   
-        title: PropTypes.string,
-        poster: PropTypes.string,
-        overview: PropTypes.string,
-        releaseDate: PropTypes.string,
-        popularity: PropTypes.number,
+    title: PropTypes.string,
+    poster: PropTypes.string,
+    overview: PropTypes.string,
+    releaseDate: PropTypes.string,
+    popularity: PropTypes.number,
     vote: PropTypes.number,
-        genres:PropTypes.array,
-   
+    genres:PropTypes.string,
 }
 
 export default MovieInfo;
