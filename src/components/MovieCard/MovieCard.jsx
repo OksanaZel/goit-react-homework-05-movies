@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AiFillStar } from "react-icons/ai";
-import { Card, Image, CardTitle, MovieLink, CardInfo, Date, Star } from "./MovieCard.styled";
+import { Card, Image, CardTitle, MovieLink, CardInfo, MovieCardInfo } from "./MovieCard.styled";
 import defaultImage from "../images/defaultMovie.png";
 
-function MovieCard({ id, poster, title, date, rating}) {
+function MovieCard({ id, poster, title, date, rating, genres}) {
 
     return (
         <Card>
@@ -14,9 +14,8 @@ function MovieCard({ id, poster, title, date, rating}) {
             <CardTitle>{title}</CardTitle>
             <CardInfo>
                 
-                <Date>{date.substring(0, 4)}</Date>
-                
-                <Star><AiFillStar/> {rating}</Star>
+                <MovieCardInfo>{`${genres} | ${date.substring(0, 4)}`}</MovieCardInfo>
+                <MovieCardInfo><AiFillStar/> {rating}</MovieCardInfo>
             </CardInfo>
             
         </Card>
@@ -29,6 +28,7 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     date: PropTypes.string,
     rating: PropTypes.number,
+    genres: PropTypes.string,
 }
 
 export default MovieCard;

@@ -4,10 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import AppBar from "../AppBar";
 import { Container } from "./App.styled";
 import Spinner from "../Spinner";
-// import HomePage from "../../views/HomePage";
-// import MoviesPage from "../../views/MoviesPage";
-// import NotFoundPage from "../../views/NotFoundPage";
-// import MovieDetailsPage from "../../views/MovieDetailsPage";
 
 const HomePage = lazy(() => import("../../views/HomePage" /* webpackChunkName: "home-page" */))
 const MoviesPage = lazy(() => import("../../views/MoviesPage" /* webpackChunkName: "movies-page" */))

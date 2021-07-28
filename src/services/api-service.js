@@ -33,6 +33,12 @@ export async function fetchReviews(movieId) {
     const url = `/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
     const { data } = await axios.get(url);
     return data.results;
+}
 
+export async function fetchGenresList() {
+    const url = `/genre/movie/list?api_key=${API_KEY}`;
+    const { data } = await axios.get(url);
+   
+    return data.genres;    
 }
     

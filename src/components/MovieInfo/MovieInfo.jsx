@@ -5,7 +5,7 @@ import { Link } from "../Navigation/Navigation.styled";
 import { Image, MovieInfoWrappet, MovieInfoContainer, MovieTitle, MovieSubTitle, MovieParams } from "./MovieInfo.styled";
 import defaultImage from "../images/defaultMovie.png";
 
-function MovieInfo({ poster, title, overview, releaseDate, popularity, vote }) {
+function MovieInfo({ poster, title, overview, releaseDate, popularity, vote, genres }) {
     const { url } = useRouteMatch();
 
     // const { poster, title, overview, releaseDate, popularity, vote } = movie;
@@ -21,6 +21,7 @@ function MovieInfo({ poster, title, overview, releaseDate, popularity, vote }) {
                 <MovieSubTitle>Overview</MovieSubTitle>
                 <MovieParams>{overview}</MovieParams>
                 <MovieSubTitle>Genres</MovieSubTitle>
+                <MovieParams>{genres}</MovieParams>
 
                 <Link to={`${url}/cast`}>Cast</Link>
                 <Link to={`${url}/reviews`}>Reviews</Link>
@@ -38,7 +39,8 @@ MovieInfo.propTypes = {
         overview: PropTypes.string,
         releaseDate: PropTypes.string,
         popularity: PropTypes.number,
-        vote: PropTypes.number,
+    vote: PropTypes.number,
+        genres:PropTypes.array,
    
 }
 

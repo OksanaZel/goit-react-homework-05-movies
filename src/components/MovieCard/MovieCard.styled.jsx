@@ -35,18 +35,10 @@ display: flex;
 justify-content:space-around;
 `;
 
-export const Date = styled.p`
+export const MovieCardInfo = styled.p`
 font-style: normal;
 font-weight: 700;
-font-size: 14px;
-color: #2196f3;
-margin-bottom: 10px;
-`;
-
-export const Star = styled.p`
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
+font-size: 12px;
 color: #2196f3;
 margin-bottom: 10px;
 `;
