@@ -7,12 +7,14 @@ import MovieCard from "../MovieCard"
 function MovieCardList({movies}) {
     return (
         <List>
-            {movies.map(({id, poster_path, title}) => (
+            {movies.map(({id, poster_path, title, release_date, vote_average}) => (
                 <MovieCard
                     key={id}
                     id={id}
                     poster={poster_path}
-                    title={title}/>
+                    title={title}
+                    date={release_date}
+                    rating={vote_average}/>
             ))}
         </List>
     )

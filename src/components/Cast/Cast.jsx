@@ -24,7 +24,7 @@ Cast.propTypes = {
     credits: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
-        profile_path: PropTypes.string.isRequired,
+        profile_path: PropTypes.string,
     }),),
 }
 

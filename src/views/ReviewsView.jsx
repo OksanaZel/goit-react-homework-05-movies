@@ -25,9 +25,9 @@ function ReviewsView() {
                 console.log(error);
             }
             const reviews = await fetchReviews(movieId);
-            console.log(reviews)
 
             setReviews(reviews);
+            window.scrollTo({ top: 650, behavior: "smooth" });
         }
         getReviews();
     }, [movieId])

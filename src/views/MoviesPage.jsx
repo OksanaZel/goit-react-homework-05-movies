@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation} from "react-router";
 import toast from 'react-hot-toast';
 import { fetchSearchMovies } from "../services/api-service";
 import SearchBar from "../components/SearchBar/SearchBar";
@@ -8,7 +8,7 @@ import MovieCardList from "../components/MovieCardList/MovieCardList"
 function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
-   
+ 
   const [movies, setMovies] = useState([]);
   
   const searchQuery = new URLSearchParams(location.search).get("query")

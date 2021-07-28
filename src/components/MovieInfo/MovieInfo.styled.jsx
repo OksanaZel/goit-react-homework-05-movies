@@ -6,7 +6,7 @@ max-width: 1170px;
 padding: 12px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 box-shadow: 0px 4px 10px #2196f3;
 `;
 
@@ -24,6 +24,7 @@ export const MovieInfoWrappet = styled.div`
 
 export const MovieTitle = styled.h1`
 text-align: center;
+margin-bottom: 25px;
 `;
 
 export const MovieOverview = styled.p``;

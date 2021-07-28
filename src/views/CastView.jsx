@@ -26,6 +26,7 @@ function CastView() {
             const cast = await fetchCastInformation(movieId);
 
             setCredits(cast);
+            window.scrollTo({ top: 650, behavior: "smooth" });
         }
         getCastInformation();
     }, [movieId])
