@@ -2,11 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { AiFillStar } from "react-icons/ai";
 import { Card, Image, CardTitle, MovieLink, CardInfo, Date, Star } from "./MovieCard.styled";
-import defaultImage from "../images/default.jpg";
+import defaultImage from "../images/defaultMovie.png";
 
 function MovieCard({ id, poster, title, date, rating}) {
-    // const location = useLocation();
-    // console.log(location);
 
     return (
         <Card>

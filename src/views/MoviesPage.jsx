@@ -54,14 +54,8 @@ function MoviesPage() {
     return (
         <>
         <SearchBar onSubmit={handleFormSubmit}></SearchBar>
-        <MovieCardList movies={movies}/>
-        {/* <ul>
-            {movies.map(({id,title}) => (
-                <li key={id}>
-                    <Link to={`${url}/${id}`}>{title}</Link></li>
-            ))}
-            </ul> */}
-            </>
+        <MovieCardList movies={movies} />
+        </>
     )
 }
 

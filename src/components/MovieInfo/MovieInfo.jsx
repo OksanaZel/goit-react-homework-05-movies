@@ -2,23 +2,25 @@ import React from "react";
 import { useRouteMatch} from "react-router-dom";
 import PropTypes from "prop-types";
 import { Link } from "../Navigation/Navigation.styled";
-import { Image, MovieInfoWrappet, MovieInfoContainer, MovieTitle, MovieOverview } from "./MovieInfo.styled";
-import defaultImage from "../images/default.png";
+import { Image, MovieInfoWrappet, MovieInfoContainer, MovieTitle, MovieSubTitle, MovieParams } from "./MovieInfo.styled";
+import defaultImage from "../images/defaultMovie.png";
 
-function MovieInfo({ movie }) {
+function MovieInfo({ poster, title, overview, releaseDate, popularity, vote }) {
     const { url } = useRouteMatch();
 
-    const { poster_path, title, overview, release_date, popularity, vote_average } = movie;
+    // const { poster, title, overview, releaseDate, popularity, vote } = movie;
     return (
         <MovieInfoContainer>
-            <Image src={poster_path ?`https://image.tmdb.org/t/p/original${poster_path}`: defaultImage} alt={title} />
+            <Image src={poster ?`https://image.tmdb.org/t/p/original${poster}`: defaultImage} alt={title} />
             <MovieInfoWrappet>
-                <MovieTitle>{title}</MovieTitle>
-                
-                <p>{popularity}</p>
-                <p>{vote_average}</p>
-                <p>{release_date}</p>
-                <MovieOverview>{overview}</MovieOverview>
+                <MovieTitle>{`${title} (${releaseDate.substring(0, 4)})`}</MovieTitle>
+                <MovieSubTitle>Vote</MovieSubTitle>
+                <MovieParams>{vote}</MovieParams>
+                <MovieSubTitle>Popularity</MovieSubTitle>
+                <MovieParams>{popularity}</MovieParams>
+                <MovieSubTitle>Overview</MovieSubTitle>
+                <MovieParams>{overview}</MovieParams>
+                <MovieSubTitle>Genres</MovieSubTitle>
 
                 <Link to={`${url}/cast`}>Cast</Link>
                 <Link to={`${url}/reviews`}>Reviews</Link>
@@ -30,14 +32,14 @@ function MovieInfo({ movie }) {
 }
 
 MovieInfo.propTypes = {
-    movie: PropTypes.shape({
+   
         title: PropTypes.string,
-        poster_path: PropTypes.string,
+        poster: PropTypes.string,
         overview: PropTypes.string,
-        release_date: PropTypes.string,
+        releaseDate: PropTypes.string,
         popularity: PropTypes.number,
-        vote_average: PropTypes.number,
-    }),
+        vote: PropTypes.number,
+   
 }
 
 export default MovieInfo;

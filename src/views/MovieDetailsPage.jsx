@@ -28,8 +28,17 @@ function MovieDetailsPage() {
         <>
             <Button type="button" onClick={() => history.goBack()}>Go back</Button>
             
-            {movie && <MovieInfo movie={movie} />}
+            {/* {movie && <MovieInfo movie={movie} />} */}
 
+            {movie && <MovieInfo
+                title={movie.title}
+                poster={movie.poster_path}
+                overview={movie.overview}
+                releaseDate={movie.release_date}
+                popularity={movie.popularity}
+                vote={movie.vote_average}/>}
+
+            
             <Suspense fallback={<Spinner />}>
                 <Route path={`${path}/cast`}>
                     <CastView />

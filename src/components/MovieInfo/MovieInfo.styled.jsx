@@ -27,4 +27,13 @@ text-align: center;
 margin-bottom: 25px;
 `;
 
-export const MovieOverview = styled.p``;
+export const MovieSubTitle = styled.h2`
+font-weight: 500;
+  color: #2a363b;
+  font-size: 20px;
+  margin-bottom: 5px;
+`;
+
+export const MovieParams = styled.p`
+margin-bottom: 15px;
+`;
