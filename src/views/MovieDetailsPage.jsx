@@ -1,6 +1,6 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
-import { Route, useParams, useRouteMatch } from "react-router-dom";
-import { fetchMovieInformation} from "../services/api-service";
+import { Route, useParams, useRouteMatch} from "react-router-dom";
+import { fetchMovieInformation } from "../services/api-service";
 // import CastView from "./CastView";
 // import ReviewsView from "./ReviewsView";
 import MovieInfo from "../components/MovieInfo";
@@ -26,19 +26,18 @@ function MovieDetailsPage() {
 
     return (
         <>
-            <Link to={`${url}`}>Go back</Link>
-            { movie && <MovieInfo movie={movie}/>}
+            {movie && <MovieInfo movie={movie} />}
 
             <Link to={`${url}/cast`}>Cast</Link>
             <Link to={`${url}/reviews`}>Reviews</Link>
 
-            <Suspense fallback={<Spinner/>}>
-            <Route path={`${path}/cast`}>
-                <CastView/>
-            </Route>
-            <Route path={`${path}/reviews`}>
-                <ReviewsView />
-            </Route>
+            <Suspense fallback={<Spinner />}>
+                <Route path={`${path}/cast`}>
+                    <CastView />
+                </Route>
+                <Route path={`${path}/reviews`}>
+                    <ReviewsView />
+                </Route>
             </Suspense>
         </>
     )

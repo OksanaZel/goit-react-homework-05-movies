@@ -10,7 +10,7 @@ export const Image = styled.img`
   display: block;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 
 `;
 

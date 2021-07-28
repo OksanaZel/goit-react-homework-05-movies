@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Image, MovieInfoWrappet, MovieInfoContainer, MovieTitle, MovieOverview } from "./MovieInfo.styled";
+import defaultImage from "../images/default.png";
 
 function MovieInfo({ movie }) {
     const { poster_path, title, overview } = movie;
     return (
         <MovieInfoContainer>
-            <Image src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={title} />
+            <Image src={poster_path ?`https://image.tmdb.org/t/p/original${poster_path}`: defaultImage} alt={title} />
             <MovieInfoWrappet>
                 <MovieTitle>{title}</MovieTitle>
                 <MovieOverview>{overview}</MovieOverview>

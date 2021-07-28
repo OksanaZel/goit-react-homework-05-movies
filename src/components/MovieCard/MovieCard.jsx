@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import {Card, Image, CardTitle} from "./MovieCard.styled"
+import { Card, Image, CardTitle } from "./MovieCard.styled";
+import defaultImage from "../images/default.jpg";
 
 function MovieCard({ id, poster, title }) {
     // const location = useLocation();
@@ -10,7 +11,7 @@ function MovieCard({ id, poster, title }) {
     return (
         <Card>
             <Link to={`/movies/${id}`}>
-            <Image src={`https://image.tmdb.org/t/p/original${poster}`} alt={title} />
+            <Image src={poster?`https://image.tmdb.org/t/p/original${poster}`:defaultImage} alt={title} />
             <CardTitle>{title}</CardTitle>
             </Link>
         </Card>
