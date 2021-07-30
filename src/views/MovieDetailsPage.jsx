@@ -1,5 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
-import { Route, useParams, useRouteMatch, useHistory } from "react-router-dom";
+import { Route, useParams, useRouteMatch, useHistory} from "react-router-dom";
 import toast from 'react-hot-toast';
 import { fetchMovieInformation} from "../services/api-service";
 import {Button }from "../components/App/App.styled";
@@ -26,7 +26,7 @@ function MovieDetailsPage() {
                 }
 
                 setMovie(movie);
-                
+
             } catch (error) {
                 history.push("/");
                 toast.error("Page not found", { duration: 3000 });
