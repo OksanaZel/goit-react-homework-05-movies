@@ -1,5 +1,6 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Route, useParams, useRouteMatch, useHistory } from "react-router-dom";
+import toast from 'react-hot-toast';
 import { fetchMovieInformation} from "../services/api-service";
 import {Button }from "../components/App/App.styled";
 import MovieInfo from "../components/MovieInfo";
@@ -17,9 +18,19 @@ function MovieDetailsPage() {
 
     useEffect(() => {
         async function getMovieInformation() {
-            const movie = await fetchMovieInformation(movieId);
+            try {
+                const movie = await fetchMovieInformation(movieId);
 
-            setMovie(movie);
+                if (!movie) {
+                    throw new Error("Page not found");
+                }
+
+                setMovie(movie);
+                
+            } catch (error) {
+                history.push("/");
+                toast.error("Page not found", { duration: 3000 });
+            }
         }
         getMovieInformation();
     }, [movieId])

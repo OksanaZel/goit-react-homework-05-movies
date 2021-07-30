@@ -8,7 +8,7 @@ import Spinner from "../Spinner";
 const HomePage = lazy(() => import("../../views/HomePage" /* webpackChunkName: "home-page" */))
 const MoviesPage = lazy(() => import("../../views/MoviesPage" /* webpackChunkName: "movies-page" */))
 const MovieDetailsPage = lazy(() => import("../../views/MovieDetailsPage" /* webpackChunkName: "movie-details-page" */))
-const NotFoundPage = lazy(() => import("../../views/NotFoundPage" /* webpackChunkName: "not-found-page" */));
+// const NotFoundPage = lazy(() => import("../../views/NotFoundPage" /* webpackChunkName: "not-found-page" */));
 
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
-        <Route>
-          <NotFoundPage />
+          <Route>
+              <HomePage />
         </Route>
         </Switch>
       </Suspense>

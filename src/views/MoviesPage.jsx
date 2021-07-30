@@ -11,8 +11,8 @@ function MoviesPage() {
  
   const [movies, setMovies] = useState([]);
   
-  const searchQuery = new URLSearchParams(location.search).get("query")
-
+  const searchQuery = new URLSearchParams(location.search).get("query");
+  
     useEffect(() => {
     if (!searchQuery) {
       return
@@ -31,7 +31,7 @@ function MoviesPage() {
         
       } catch (error) {
         console.log(error);
-        toast.error("No results found")
+        toast.error("No results found", {duration: 3000})
       }
     }
     getFetchMovies();

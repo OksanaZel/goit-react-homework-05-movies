@@ -23,7 +23,7 @@ function MovieCardList({ movies }) {
     
     return (
         <List>
-            {movies.map(({id, poster_path, title, release_date, vote_average, genre_ids}) => (
+            {genres && movies.map(({id, poster_path, title, release_date, vote_average, genre_ids}) => (
                 <MovieCard
                     key={id}
                     id={id}
