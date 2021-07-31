@@ -29,9 +29,10 @@ function MovieCardList({ movies }) {
                     id={id}
                     poster={poster_path}
                     title={title}
-                    date={release_date}
+                    date={release_date || "(ツ)"}
                     rating={vote_average}
-                    genres={genres.filter((genre) => genre_ids.includes(genre.id)).slice(0,3).map((genre) => genre.name)}/>
+                    genres={genres.filter((genre) => genre_ids.includes(genre.id))
+                        .slice(0, 3).map((genre) => genre.name)} />
             ))}
             </List>
     )

@@ -43,10 +43,10 @@ function MovieDetailsPage() {
                 title={movie.title}
                 poster={movie.poster_path}
                 overview={movie.overview}
-                releaseDate={movie.release_date}
+                releaseDate={movie.release_date || 'ツ'}
                 popularity={movie.popularity}
                 vote={movie.vote_average}
-                genres={movie.genres.map((genre) => genre.name).join(", ")}
+                genres={movie.genres.map((genre) => genre.name).join(", ") || "\u2015"}
             />}
 
             
