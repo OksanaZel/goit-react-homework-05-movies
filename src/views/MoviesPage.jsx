@@ -8,7 +8,7 @@ import MovieCardList from "../components/MovieCardList/MovieCardList"
 function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
- 
+  
   const [movies, setMovies] = useState([]);
   
   const searchQuery = new URLSearchParams(location.search).get("query");

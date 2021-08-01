@@ -1,6 +1,7 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, lazy, Suspense} from "react";
 import { Route, useParams, useRouteMatch, useHistory} from "react-router-dom";
 import toast from 'react-hot-toast';
+import useGoBack from "../hooks/useGoBack"
 import { fetchMovieInformation} from "../services/api-service";
 import {Button }from "../components/App/App.styled";
 import MovieInfo from "../components/MovieInfo";
@@ -10,9 +11,10 @@ const CastView = lazy(() => import("./CastView" /* webpackChunkName: "cast-view"
 const ReviewsView = lazy(() => import("./ReviewsView" /* webpackChunkName: "reviews-view" */));
 
 function MovieDetailsPage() {
-    const { path } = useRouteMatch();
+    const { path} = useRouteMatch();
     const history = useHistory();
-
+    const goBack = useGoBack();
+    
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
 
@@ -33,11 +35,12 @@ function MovieDetailsPage() {
             }
         }
         getMovieInformation();
-    }, [movieId])
+    }, [movieId]);
+    
 
     return (
         <>
-            <Button type="button" onClick={() => history.goBack()}>Go back</Button>
+            <Button type="button" onClick={goBack}>Go back</Button>
 
             {movie && <MovieInfo
                 title={movie.title}
@@ -61,5 +64,6 @@ function MovieDetailsPage() {
         </>
     )
 }
+
 
 export default MovieDetailsPage;
