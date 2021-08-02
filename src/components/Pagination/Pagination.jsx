@@ -1,27 +1,30 @@
 import React from "react";
-import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai"
 import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
+import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai"
 import {StyledPaginateContainer} from "./Pagination.styled"
 
-function Pagination({ totalPages}) {
+function Pagination({ totalPages, onClick}) {
     return (
         <StyledPaginateContainer>
         <ReactPaginate
-                previousLabel={<AiOutlineArrowLeft/>}
-                
-                previousClassName={'previous'}
-          nextLabel={<AiOutlineArrowRight/>}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={totalPages}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-        //   onPageChange={onClick}
-          containerClassName={'container'}
-                activeClassName={'active'}
+                pageCount={totalPages}
+                onPageChange={onClick}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                containerClassName={'container'}
                 pageClassName={'item'}
-
+                activeClassName={'activeItem'}
+                pageLinkClassName={'link'}
+                previousClassName={'previous'}
+                previousLinkClassName={'previousLink'}
+                previousLabel={<AiOutlineArrowLeft />}
+                nextClassName={'next'}
+                nextLinkClassName={"nextLink"}
+                nextLabel={<AiOutlineArrowRight />}
+                breakClassName={'break-me'}
+                breakLabel={'...'}
+                breakLinkClassName={'breakLink'}
             />
             </StyledPaginateContainer>
     )
@@ -30,6 +33,8 @@ function Pagination({ totalPages}) {
 
 Pagination.propTypes = {
     totalPages: PropTypes.number,
+    initialPage: PropTypes.number,
+    onClick: PropTypes.func,
 }
 
 export default Pagination;

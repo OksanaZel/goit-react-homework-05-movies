@@ -6,10 +6,13 @@ import MovieCardList from "../components/MovieCardList/MovieCardList";
 import Pagination from "../components/Pagination/Pagination";
 
 function HomePage() {
-  const [movies, setMovies] = useState([]);
-  const [totalPages, setTotalPages] = useState(null);
   const { isExact } = useRouteMatch();
   const history = useHistory();
+
+  const [movies, setMovies] = useState([]);
+  const [totalPages, setTotalPages] = useState(null);
+
+  const currentPage = Number(new URLSearchParams(location.search).get("page")) || 1;
 
   useEffect(() => {
 
@@ -20,8 +23,8 @@ function HomePage() {
     
         async function getFetchMovies() {
     try {
-      const data = await fetchTrandingMovies();
-      const { results, total_pages} = data;
+      const data = await fetchTrandingMovies(currentPage);
+      const { results, total_pages } = data;
       
       setTotalPages(total_pages);
       setMovies(results);
@@ -31,12 +34,19 @@ function HomePage() {
       }
     }
     getFetchMovies();
-    },[])
+  }, [currentPage, history, isExact])
+  
+  const handlePageClick = ({selected}) => {
+    history.push({
+      ...location,
+      search: selected === 0 ? "":`page=${selected+1}`,
+    })
+  }
 
   return (
       <>
       <MovieCardList movies={movies} />
-      <Pagination totalPages={totalPages}/>
+      <Pagination totalPages={totalPages} onClick={handlePageClick}/>
       </>
     )
 }

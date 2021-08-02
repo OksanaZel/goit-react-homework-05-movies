@@ -7,27 +7,88 @@ export const StyledPaginateContainer = styled.div`
     margin-bottom: 25px;
 }
 
-  .pagination {
-    color: #0366d6;
-  }
-
-  .break-me {
-    cursor: default;
-    margin-right: 15px;
-  }
-
-  .active {
-    border-color: transparent;
-    background-color: #2196f3;
-    color: white;
-  }
-
   .item{
-      margin-right:15px;
+  width: 50px;
+  height: 50px;
+  margin-right:25px;
+  }
+
+  .activeItem {
+    background-color: #2196f3;
+    border-radius: 4px;
+    color: #fff;
   }
 
   .previous{
-      margin-right: 15px;
+    width: 50px;
+    height: 50px;
   }
 
+  .next{
+    width: 50px;
+    height: 50px;
+  }
+
+  .break-me {
+    width: 50px;
+    height: 50px;
+  }
+
+  .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    width: 100%;
+    height: 100%;
+
+    &:hover{
+      background-color: #2196f3;
+      border-radius: 4px;
+      color: #fff;
+    }
+  }
+
+  .previousLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+
+    &:hover{
+      background-color: #2196f3;
+      border-radius: 4px;
+      color: #fff;
+  }
+}
+
+  .nextLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+
+    &:hover{
+      background-color: #2196f3;
+      border-radius: 4px;
+      color: #fff;
+    }
+  }
+
+  .breakLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+  }
 `;

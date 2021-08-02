@@ -3,21 +3,16 @@ import { BASE_URL, API_KEY } from "../services/constants";
 
 axios.defaults.baseURL = BASE_URL;
         
-export async function fetchTrandingMovies() {
-    const url = `/trending/movie/week?api_key=${API_KEY}`;
+export async function fetchTrandingMovies(page) {
+    const url = `/trending/movie/week?api_key=${API_KEY}&page=${page}`;
     const {data} = await axios.get(url);
-    // console.log(data.results);
-    // console.log(data.total_pages);
-    // const {results, total_pages, page, total_results}= data
-   
-    // return { results, total_pages, page, total_results } ; 
     return data;
 }
 
-export async function fetchSearchMovies(seacrhQuery) {
-    const url = `/search/movie?api_key=${API_KEY}&query=${seacrhQuery}&language=en-US&page=1&include_adult=false`;
+export async function fetchSearchMovies(seacrhQuery, page) {
+    const url = `/search/movie?api_key=${API_KEY}&query=${seacrhQuery}&page=${page}&language=en-US&include_adult=false`;
     const { data } = await axios.get(url);
-    return data.results; 
+    return data; 
 }
 
 export async function fetchMovieInformation(movieId) {
